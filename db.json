@@ -1,0 +1,70 @@
+{
+  "products": [
+    {
+      "id": 7,
+      "name": "IPhone 13 Pro Max",
+      "price": 22000000,
+      "image": "https://tse2.mm.bing.net/th?id=OIP.NDxxbZL7x60N9emjBdaXQwHaHa&pid=Api&P=0",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 1
+    },
+    {
+      "id": 6,
+      "name": "IPhone 12 Pro Max",
+      "price": 18000000,
+      "image": "https://synnexfpt.com/wp-content/uploads/2022/06/Apple-iPhone-12.jpg",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 1
+    },
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro Max",
+      "price": 18000000,
+      "image": "https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-den-200x200.jpg",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 1
+    },
+    {
+      "id": 4,
+      "name": "IPhone X ProMax",
+      "price": 22000000,
+      "image": "",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 1
+    },
+    {
+      "id": 3,
+      "name": "IPhone 8 Plus",
+      "price": 22000000,
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/342/250/products/8p-do.png?v=1589028491377",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 2
+    },
+    {
+      "id": 2,
+      "name": "IPhone 7 Plus",
+      "price": 22000000,
+      "image": "https://camonmobile.com/upload/product/iphone-7-plus-128gb-hh-600x600-3248.jpg",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 2
+    },
+    {
+      "id": 1,
+      "name": "IPhone 6 Plus",
+      "price": 22000000,
+      "image": "https://www.xtmobile.vn/vnt_upload/product/03_2018/thumbs/600_ip6_silver_800x800_2.jpg",
+      "description": "5G, 128GB, Space Black",
+      "categoryID": 2
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "nameCategory": "nghia"
+    },
+    {
+      "id": 2,
+      "nameCategory": "nghia12"
+    }
+  ]
+}
