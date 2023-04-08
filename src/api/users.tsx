@@ -1,11 +1,11 @@
+import instance from './instance';
+import { IUser } from '../types/user';
 
-import instance from "./instance";
-
-const SignUpUsser = (users) =>{
-    return instance.post("/signup",users)
+const SignUpUsser = (user: IUser) => {
+    return instance.post('/signup', user)
 }
-const SignInUsers = (users) =>{
-    return instance.post("/signin",users)
+const SignInUsers = (user: IUser) => {
+    return instance.post('/signin', user)
 }
 
-export  {SignUpUsser,SignInUsers}
+export { SignUpUsser, SignInUsers }

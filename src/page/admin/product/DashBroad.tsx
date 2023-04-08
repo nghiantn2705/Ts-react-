@@ -1,10 +1,12 @@
 import React,{useState,useEffect, useRef} from 'react';
 import { IProduct } from '../../../types/products';
 import { SearchOutlined } from '@ant-design/icons';
-import type { InputRef } from 'antd';
+import { InputRef, message } from 'antd';
 import { Button, Input, Space, Table } from 'antd';
 import type { ColumnsType, ColumnType } from 'antd/es/table';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
+import useStore from '../../../shared/hooks/use-store';
+import { DeleteProduct, getAllProducts } from '../../../api/product';
 
 
 
@@ -12,7 +14,16 @@ interface IProps {
     products:IProduct[],
     onRemove: (id:number) => void
 }
-const DashBroad = (props:IProps) => {
+const DashBroad = () => {
+  const [products, setProducts] = useStore<IProduct[]>('products');
+
+    useEffect(() => {
+        getAllProducts().then((res) => {
+            setProducts(res.data);
+        }).catch((ex) => {
+            message.error(ex?.message || 'Looix');
+        })
+    }, [])
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef<InputRef>(null);
@@ -93,8 +104,8 @@ const DashBroad = (props:IProps) => {
         setTimeout(() => searchInput.current?.select(), 100);
       }
     },
-    
-      
+
+
   });
 
     interface DataType {
@@ -102,13 +113,13 @@ const DashBroad = (props:IProps) => {
       key:any;
       name: string;
       price: number;
-  description: string;    
+  description: string;
 image: string;
 categoryId:string
 
   }
   const removeProduct = (id:number)=>{
-    props.onRemove(id)
+    DeleteProduct(id)
   }
     const columns: ColumnsType<DataType> = [
       {
@@ -155,15 +166,16 @@ categoryId:string
         ),
       },
     ];
-  
-    const data: Datatype[] = props.products.map((item)=>{
+
+    
+    const data: Datatype[] = products?.map((item)=>{
       return {
         key: item.id,
         ...item
       }
-    })
+    }) || []
     console.log(data);
-  return  <Table columns={columns} dataSource={props.products} pagination={{pageSize:12}} />
+  return  <Table columns={columns} dataSource={products} pagination={{pageSize:12}} />
 }
 
 export default DashBroad

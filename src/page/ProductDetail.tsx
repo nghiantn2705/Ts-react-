@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Breadcrumb, Layout, Menu, message, theme } from "antd";
+import useStore from '../shared/hooks/use-store';
+import { IProduct } from '../types/products';
+import { getAllProducts, getProductsDetails } from '../api/product';
 const { Header, Footer, Sider, Content } = Layout;
 
-const ProductDetail = (props) => {
+const ProductDetail = () => {
+  const [product, setProduct] = useStore<IProduct[]>('products');
+
+  useEffect(() => {
+      getAllProducts().then((res) => {
+          setProduct(res.data);
+      }).catch((ex) => {
+          message.error(ex?.message || 'Looix');
+      })
+  }, [])
     const {id} = useParams()
-        const productDetail= props.products.find((item) => item._id == id)
+        const productDetail= product.find((item) => item._id == Number(id))
         console.log(productDetail)
         const {
           token: { colorBgContainer },
